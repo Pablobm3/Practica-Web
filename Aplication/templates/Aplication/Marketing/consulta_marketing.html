@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta Django</title>
+</head>
+<body>
+    <form method="post" action="{% url 'consulta_marketing' %}">
+        {% csrf_token %}
+        <label for="tabla">Selecciona una tabla:</label>
+        <select id="tabla" name="tabla" required style="font-size: 20px; padding: 10px 20px;">
+            <option value="Socios">Socios</option>
+            <option value="Promociona">Promociona</option>
+            <option value="Financia">Financia</option>
+            <!-- Agrega más opciones según sea necesario -->
+        </select>
+        <button type="submit">Consultar</button>
+    </form>
+
+    <!-- Button para ir a la página de home-->
+    <button onclick="window.location='{% url 'home' %}'" style="font-size: 20px; padding: 10px 20px;">Inicio</button>
+</body>
+</html>

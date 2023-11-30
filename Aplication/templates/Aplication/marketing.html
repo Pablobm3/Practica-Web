@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Marketing</title>
+</head>
+<body>
+    <h1>Marketing</h1>
+    <p>Esta es la pagina de Marketing</p>
+
+    <!-- Dar de alta un socio -->
+    <button onclick="window.location='{% url 'alta_socio' %}'" style="font-size: 20px; padding: 10px 20px;">Dar de alta un socio</button>
+
+    <!-- Dar de baja un socio -->
+    <button onclick="window.location='{% url 'baja_socio' %}'" style="font-size: 20px; padding: 10px 20px;">Dar de baja un socio</button>
+    <!-- Modificar un socio -->
+    <button onclick="window.location='{% url 'modifica_socio' %}'" style="font-size: 20px; padding: 10px 20px;">Modificar un socio</button>
+    <!-- Listar los socios -->
+     <!-- Button para ir a la página de consulta.html-->
+     <button onclick="window.location='{% url 'consulta_marketing' %}'" style="font-size: 20px; padding: 10px 20px;">Listar socios</button>
+    
+    <!-- Button para ir a la página de home-->
+    <button onclick="window.location='{% url 'home' %}'" style="font-size: 20px; padding: 10px 20px;">Inicio</button>
+
+</body>
+
+</html>

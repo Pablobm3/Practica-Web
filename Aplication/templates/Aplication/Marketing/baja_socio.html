@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dar de baja socio</title>
+</head>
+<body>
+    <form method="post" action="{% url 'baja_socio' %}">
+        {% csrf_token %}
+        <label for="DNI_Socio">DNI Socio:</label>
+        <input type="text" id="DNI_Socio" name="DNI_Socio" required style="font-size: 20px; padding: 10px 20px;">
+        <!--Salto de linea-->
+        <br>
+        <!-- Agrega más opciones según sea necesario -->
+        </select>
+        <button type="submit" style="font-size: 20px; padding: 10px 20px;">Borrar</button>
+    </form>
+
+    <!-- Button para ir a la página de home-->
+    <button onclick="window.location='{% url 'home' %}'" style="font-size: 20px; padding: 10px 20px;">Inicio</button>
+</body>
+</html>

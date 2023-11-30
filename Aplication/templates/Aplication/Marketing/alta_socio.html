@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dar de alta socio</title>
+</head>
+<body>
+    <form method="post" action="{% url 'alta_socio' %}">
+        {% csrf_token %}
+        <label for="DNI_Socio">DNI Socio:</label>
+        <input type="text" id="DNI_Socio" name="DNI_Socio" required style="font-size: 20px; padding: 10px 20px;">
+        <!--Salto de linea-->
+        <br>
+        <label for="Nombre">Nombre:</label>
+        <input type="text" id="Nombre" name="Nombre" required style="font-size: 20px; padding: 10px 20px;">
+        <br>
+        <label for="Telefono_socio">Telefono Socio:</label>
+        <input type="text" id="Telefono_socio" name="Telefono_socio" required style="font-size: 20px; padding: 10px 20px;" maxlength="9">
+        <br>
+        <label for="Correo">Correo:</label>
+        <input type="text" id="Correo" name="Correo" required style="font-size: 20px; padding: 10px 20px;">
+        <br>
+        <label for="N_tarjeta">Número de Tarjeta:</label>
+        <input type="text" id="N_tarjeta" name="N_tarjeta" required style="font-size: 20px; padding: 10px 20px;" maxlength="16">
+        <br>
+        <label for="Domicilio">Domicilio:</label>
+        <input type="text" id="Domicilio" name="Domicilio" required style="font-size: 20px; padding: 10px 20px;">
+        <br>
+            <!-- Agrega más opciones según sea necesario -->
+        </select>
+        <button type="submit" style="font-size: 20px; padding: 10px 20px;">Crear</button>
+    </form>
+
+    <!-- Button para ir a la página de home-->
+    <button onclick="window.location='{% url 'home' %}'" style="font-size: 20px; padding: 10px 20px;">Inicio</button>
+</body>
+</html>
