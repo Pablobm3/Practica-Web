@@ -59,3 +59,22 @@ class Financia(models.Model):
     def __str__(self):
         return self.ID_Gasto
 
+'''
+CREATE TABLE Campañas(
+	ID_Campana VARCHAR(9) PRIMARY KEY,
+	Nom_Campana VARCHAR(50),
+	Tipo VARCHAR(50),
+	Duracion INT,
+	Presupuesto INT
+);
+'''
+
+class Campanas(models.Model):
+    ID_Campana = models.CharField(max_length=9, primary_key=True)
+    Nom_Campana = models.CharField(max_length=50)
+    Tipo = models.CharField(max_length=50)
+    Duracion = models.IntegerField()
+    Presupuesto = models.IntegerField()
+
+    def __str__(self):
+        return self.Nom_Campana

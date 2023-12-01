@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        p {
+            color: #777;
+            margin-top: 20px;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Resultados:</h2>
+    {% if tabla == 'Socios' %}
+        <table>
+            <!-- Estructura específica para la tabla Socios -->
+            <thead>
+                <tr>
+                    <th>DNI Socio</th>
+                    <th>Nombre</th>
+                    <th>Telefono Socio</th>
+                    <th>Correo</th>
+                    <th>Número de Tarjeta</th>
+                    <th>Domicilio</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for fila in filas %}
+                    <tr>
+                        <td>{{ fila.DNI_Socio }}</td>
+                        <td>{{ fila.Nombre }}</td>
+                        <td>{{ fila.Telefono_socio }}</td>
+                        <td>{{ fila.Correo }}</td>
+                        <td>{{ fila.N_tarjeta }}</td>
+                        <td>{{ fila.Domicilio }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% elif tabla == 'Financia' %}
+        <!-- Estructura específica para otra tabla -->
+        <table>
+            <!-- Estructura específica para la tabla Socios -->
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>ID_Gasto</th>
+                    <th>Fecha_Financia</th>
+                    <th>ID_Campaña</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for fila in filas %}
+                    <tr>
+                        <td>{{ fila.id }}</td>
+                        <td>{{ fila.ID_Gasto }}</td>
+                        <td>{{ fila.Fecha_financia }}</td>
+                        <td>{{ fila.ID_campana }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <!-- ... -->
+        {% elif tabla == 'Promociona' %}
+        <!-- Estructura específica para otra tabla -->
+        <table>
+            <!-- Estructura específica para la tabla Socios -->
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>ID_Campaña</th>
+                    <th>ID_Artículo</th>
+                    <th>Temporada</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for fila in filas %}
+                    <tr>
+                        <td>{{ fila.id }}</td>
+                        <td>{{ fila.ID_Campana }}</td>
+                        <td>{{ fila.ID_Articulo }}</td>
+                        <td>{{ fila.Temporada }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <!-- ... -->
+        {% elif tabla == 'Campanas' %}
+        <!-- Estructura específica para otra tabla -->
+        <table>
+            <!-- Estructura específica para la tabla Socios -->
+            <thead>
+                <tr>
+                    <th>ID_Campaña</th>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Duración en meses</th>
+                    <th>Presupuesto</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for fila in filas %}
+                    <tr>
+                        <td>{{ fila.ID_Campana }}</td>
+                        <td>{{ fila.Nom_Campana }}</td>
+                        <td>{{ fila.Tipo }}</td>
+                        <td>{{ fila.Duracion }}</td>
+                        <td>{{ fila.Presupuesto }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <!-- ... -->
+    {% else %}
+        <p>Tabla no reconocida</p>
+    {% endif %}
+
+    <button onclick="window.location='{% url 'marketing' %}'">Volver</button>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modificar Socio</title>
+    <title>Selecciona Campaña</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -34,7 +34,7 @@
             font-size: 18px;
         }
 
-        input {
+        input, select {
             font-size: 18px;
             padding: 10px;
             width: 100%;
@@ -64,40 +64,20 @@
 </head>
 <body>
 
-    <h2>Modificar Socio</h2>
-
-    <form method="post" action="{% url 'modifica_socio' %}">
+    <h2>Modificar Campaña</h2>
+    
+    <form method="post" action="{% url 'selecciona_campana_modifica' %}">
         {% csrf_token %}
-
-        <!-- Campo DNI Socio (solo lectura) -->
-        <label for="DNI_Socio">DNI Socio:</label>
-        <input type="text" id="DNI_Socio" name="DNI_Socio" value="{{ socio.DNI_Socio }}" readonly>
-
-        <!-- Campo Nombre -->
-        <label for="Nombre">Nombre:</label>
-        <input type="text" id="Nombre" name="Nombre" value="{{ socio.Nombre }}" placeholder="Ejemplo: Juan">
-
-        <!-- Campo Telefono Socio -->
-        <label for="Telefono_socio">Telefono Socio:</label>
-        <input type="text" id="Telefono_socio" name="Telefono_socio" maxlength="9" value="{{ socio.Telefono_socio }}" placeholder="Ejemplo: 123456789">
-
-        <!-- Campo Correo -->
-        <label for="Correo">Correo:</label>
-        <input type="text" id="Correo" name="Correo" value="{{ socio.Correo }}" placeholder="Ejemplo: juan47@correo.es">
-
-        <!-- Campo Número de Tarjeta -->
-        <label for="N_tarjeta">Número de Tarjeta:</label>
-        <input type="text" id="N_tarjeta" name="N_tarjeta" maxlength="16" value="{{ socio.N_tarjeta }}" placeholder="Ejemplo: 1234567891234567">
-
-        <!-- Campo Domicilio -->
-        <label for="Domicilio">Domicilio:</label>
-        <input type="text" id="Domicilio" name="Domicilio" value="{{ socio.Domicilio }}" placeholder="Ejemplo: Calle Falsa 123">
-
-        <!-- Botones -->
+        <label for="ID_Campana">ID de la Campaña:</label>
+        <select name="ID_Campana">
+            {% for campana in Campanas %}
+                <option value="{{ campana.ID_Campana }}">{{ campana.ID_Campana }}</option>
+            {% endfor %}
+        </select>
+        <br>
         <button type="submit">Modificar</button>
         <button class="button_cancel" onclick="window.location='{% url 'marketing' %}'">Cancelar</button>
-        <!-- Botón para ir a la página de inicio-->
-        
+        <!-- Botón para ir a la página de inicio -->
     </form>
 
 </body>

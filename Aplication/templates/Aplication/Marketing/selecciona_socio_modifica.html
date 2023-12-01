@@ -3,27 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dar de alta socio</title>
+    <title>Selecciona Socio</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             background-color: #f5f5f5;
             margin: 0;
             padding: 20px;
             text-align: center;
         }
 
+        h2 {
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            color: #666;
+        }
+
         form {
             display: inline-block;
             text-align: left;
+            margin-top: 20px;
         }
 
         label {
             display: block;
             margin-top: 10px;
+            font-size: 18px;
         }
 
-        input {
+        input, select {
             font-size: 18px;
             padding: 10px;
             width: 100%;
@@ -40,7 +51,6 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-
         }
 
         button:hover {
@@ -53,31 +63,21 @@
     </style>
 </head>
 <body>
-    <h2>Dar de alta socio</h2>
-    <form method="post" action="{% url 'alta_socio' %}">
+
+    <h2>Modificar Socio</h2>
+    
+    <form method="post" action="{% url 'selecciona_socio_modifica' %}">
         {% csrf_token %}
         <label for="DNI_Socio">DNI Socio:</label>
-        <input type="text" id="DNI_Socio" name="DNI_Socio" required placeholder="Ejemplo: 12345678A" maxlength="9">
-
-        <label for="Nombre">Nombre:</label>
-        <input type="text" id="Nombre" name="Nombre" required placeholder="Ejemplo: Juan">
-
-        <label for="Telefono_socio">Telefono Socio:</label>
-        <input type="text" id="Telefono_socio" name="Telefono_socio" required maxlength="9" placeholder="Ejemplo: 123456789">
-
-        <label for="Correo">Correo:</label>
-        <input type="email" id="Correo" name="Correo" required placeholder="Ejemplo: juan45@correo.es">
-
-        <label for="N_tarjeta">Número de Tarjeta:</label>
-        <input type="text" id="N_tarjeta" name="N_tarjeta" required maxlength="16" placeholder="Ejemplo: 1234567891234567">
-
-        <label for="Domicilio">Domicilio:</label>
-        <input type="text" id="Domicilio" name="Domicilio" required placeholder="Ejemplo: Calle Falsa 123">
-
-        <!-- Agrega más opciones según sea necesario -->
-
-        <button type="submit">Crear</button>
+        <select name="DNI_Socio">
+            {% for socio in Socios %}
+                <option value="{{ socio.DNI_Socio }}">{{ socio.DNI_Socio }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <button type="submit">Modificar</button>
         <button class="button_cancel" onclick="window.location='{% url 'marketing' %}'">Cancelar</button>
+        <!-- Botón para ir a la página de inicio -->
     </form>
 
 </body>

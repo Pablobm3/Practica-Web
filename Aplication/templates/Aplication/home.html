@@ -1,23 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de inicio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 50px;
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        nav {
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+
+        li {
+            margin: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        a:hover {
+            color: #ddd;
+        }
+    </style>
 </head>
 <body>
-    <h1>Home</h1>
-    <p>Esta es la pagina de inicio</p>   
-    <!-- Button para ir a la página de admin-->
-    <a href="/admin">Admin</a>
-
+    <!-- Menú de navegación -->
     <nav>
         <ul>
             <li><a href="marketing">Marketing</a></li>
             <li><a href="rrhh">Recursos Humanos</a></li>
             <li><a href="contabilidad">Contabilidad</a></li>
-            <li><a href="logistica">Logistica</a></li>
-            <!-- Otros elementos del menú de navegación -->
+            <li><a href="logistica">Logística</a></li>
+            <!-- Agrega otros elementos del menú de navegación según sea necesario -->
         </ul>
     </nav>
+    <h1>Home</h1>
+    <p>Esta es la página de inicio</p>
+
+    <!-- Botón para ir a la página de administrador -->
+    <a href="/admin" style="display: inline-block; margin: 20px; padding: 10px 20px; background-color: #4CAF50; color: #fff; text-decoration: none; border-radius: 5px;">Ir a Admin</a>
 
 </body>
 </html>

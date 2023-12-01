@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dar de Baja Socio</title>
+    <title>Dar de Baja Campaña</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -25,7 +24,7 @@
             font-size: 18px;
         }
 
-        input {
+        input, select {
             font-size: 18px;
             padding: 10px;
             width: 100%;
@@ -65,33 +64,22 @@
     </style>
 </head>
 <body>
-    <h2>Dar de Baja Socio</h2>
-    <form method="post" action="{% url 'baja_socio' %}" onsubmit="return confirmacion()">
+    <h2>Dar de Baja Campaña</h2>
+    <form method="post" action="{% url 'baja_campana' %}" onsubmit="return confirmacion()">
         {% csrf_token %}
-        <label for="DNI_Socio">DNI Socio:</label>
-        <input type="text" id="DNI_Socio" name="DNI_Socio" value="{{ socio.DNI_Socio }}" readonly>
-        <label for="Nombre">Nombre:</label>
-        <input type="text" id="Nombre" name="Nombre" value="{{ socio.Nombre }}" readonly>
-
-        <label for="Telefono_socio">Telefono Socio:</label>
-        <input type="text" id="Telefono_socio" name="Telefono_socio" value="{{ socio.Telefono_socio }}" readonly>
-
-        <label for="Correo">Correo:</label>
-        <input type="text" id="Correo" name="Correo" value="{{ socio.Correo }}" readonly>
-
-        <label for="N_tarjeta">Número de Tarjeta:</label>
-        <input type="text" id="N_tarjeta" name="N_tarjeta" value="{{ socio.N_tarjeta }}" readonly>
-
-        <label for="Domicilio">Domicilio:</label>
-        <input type="text" id="Domicilio" name="Domicilio" value="{{ socio.Domicilio }}" readonly>
-
-        <button type="submit">Borrar</button>
+        <label for="ID_Campana">ID de la Campaña:</label>
+        <input type="text" name="ID_Campana" id="ID_Campana" placeholder="ID de la Campaña" value="{{ campana.ID_Campana }}" readonly>
+        <br>
+        <button type="submit">Dar de Baja</button>
         <button id="inicio-btn" onclick="window.location='{% url 'marketing' %}'">Cancelar</button>
     </form>
+
     <script>
         function confirmacion() {
-            return confirm("¿Estás seguro de que quieres dar de baja a este socio?");
+            // Utiliza la función confirm de JavaScript para mostrar una ventana de confirmación
+            return confirm('¿Estás seguro de dar de baja la campaña?');
         }
     </script>
 </body>
+
 </html>
