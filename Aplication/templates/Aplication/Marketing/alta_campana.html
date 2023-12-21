@@ -55,6 +55,9 @@
 </head>
 <body>
     <h2>Dar de Alta Campaña</h2>
+    {% if error_message %}
+        <p style="color: red; font-weight: bold;">{{ error_message }}</p>
+    {% endif %}
     <form method="post" action="{% url 'alta_campana' %}">
         {% csrf_token %}
         <label for="ID_Campana">ID Campaña:</label>

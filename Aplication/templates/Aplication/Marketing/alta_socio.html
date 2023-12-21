@@ -54,6 +54,10 @@
 </head>
 <body>
     <h2>Dar de alta socio</h2>
+    {% if error_message %}
+        <p style="color: red; font-weight: bold;">{{ error_message }}</p>
+    {% endif %}
+
     <form method="post" action="{% url 'alta_socio' %}">
         {% csrf_token %}
         <label for="DNI_Socio">DNI Socio:</label>

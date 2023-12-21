@@ -40,4 +40,23 @@ class Migration(migrations.Migration):
                 ('Domicilio', models.CharField(max_length=50)),
             ],
         ),
+        migrations.RunSQL('''
+            CREATE TRIGGER IF NOT EXISTS before_insert_socio
+            BEFORE INSERT ON Socios
+            BEGIN
+                -- Crear un SAVEPOINT
+                SAVEPOINT before_insert;
+
+                -- Verificar si ya existe un socio con el mismo DNI_Socio
+                SELECT CASE WHEN EXISTS (SELECT 1 FROM Aplication_socios WHERE DNI_Socio = NEW.DNI_Socio) THEN
+                           -- ROLLBACK TO SAVEPOINT revertirá los cambios hasta el SAVEPOINT
+                           ROLLBACK TO SAVEPOINT before_insert;
+                           -- RAISE(ABORT, ...) lanzará una excepción que puedes capturar en Django
+                           RAISE(ABORT, '¡Ya existe un socio con el mismo DNI!');
+                       END;
+
+                -- Si no hay duplicados, continuar con la inserción
+                RELEASE SAVEPOINT before_insert;
+            END;
+        '''),
     ]

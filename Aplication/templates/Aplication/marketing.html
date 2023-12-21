@@ -69,7 +69,7 @@
             right: 10px;
             font-size: 18px;
             padding: 10px 20px;
-            background-color: #4CAF50;
+            background-color: #45a049;
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -111,6 +111,14 @@
     </div>
 
     <hr>
+
+    <div class="container">
+        <div class="button-group">
+            {% if success_message %}
+            <p style="color: green; font-weight: bold;">{{ success_message }}</p>
+            {% endif %}
+        </div>
+    </div>
 
     <div class="container">
         <!-- Botón de Inicio en la esquina superior derecha -->

@@ -1,20 +1,127 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contabilidad</title>
-</head>
-<body>
-    <h1>Contabilidad</h1>
-    <p>Esta es la pagina de Contabilidad</p>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
 
-    <!-- Dar de alta un gasto -->
-    <!-- Dar de baja un gasto -->
-    <!-- Modificar un gasto -->
-    <!-- Listar los gastos -->
-    
-    <!-- Button para ir a la página de home-->
-    <button onclick="window.location='{% url 'home' %}'" style="font-size: 20px; padding: 10px 20px;">Inicio</button>
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-top: 10px;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ccc;
+            margin: 20px 0;
+        }
+
+        .container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .button {
+            font-size: 18px;
+            padding: 12px 24px;
+            background-color: #4c56af;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #3f4c8a;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #777;
+        }
+
+        /* Estilos para el botón de Inicio en la esquina superior derecha */
+        #inicio-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #4c56af;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #inicio-btn:hover {
+            background-color: #3f4c8a;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Contabilidad</h1>
+    </header>
+    <hr>
+
+    <div class="container">
+        <div class="button-group">
+            <button onclick="window.location='{% url 'alta_gasto' %}'" class="button" title="Usa esta opción para dar de alta un gasto">Dar de alta un gasto</button>
+            <button onclick="window.location='{% url 'selecciona_gasto_baja' %}'" class="button" title="Usa esta opción para dar de baja un gasto">Dar de baja un gasto</button>
+            <button onclick="window.location='{% url 'selecciona_gasto_modifica' %}'" class="button" title="Usa esta opción para modificar un gasto">Modificar un gasto</button>
+            <button onclick="window.location='{% url 'consulta_gastos' %}'" class="button" title="Usa esta opción para listar los gastos">Listar gastos</button>
+        </div>
+        
+    </div>
+
+    <hr>
+
+    <div class="container">
+        <div class="button-group">
+            <button onclick="window.location='{% url 'alta_ingreso_factura' %}'" class="button" title="Usa esta opción para dar de alta un ingreso de factura">Dar de alta un ingreso de factura</button>
+            <button onclick="window.location='{% url 'selecciona_ingreso_factura_baja' %}'" class="button" title="Usa esta opción para dar de baja un ingreso de factura">Dar de baja un ingreso de factura</button>
+            <button onclick="window.location='{% url 'selecciona_ingreso_factura_modifica' %}'" class="button" title="Usa esta opción para modificar un ingreso de factura">Modificar un ingreso de factura</button>
+            <button onclick="window.location='{% url 'consulta_ingreso_factura' %}'" class="button" title="Usa esta opción para listar los ingresos de factura">Listar ingresos de factura</button>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="container">
+        <!-- Botón de Inicio en la esquina superior derecha -->
+        <button id="inicio-btn" onclick="window.location='{% url 'home' %}'">Inicio</button>
+    </div>
+
+    <footer>
+        © 2023 Contabilidad. Todos los derechos reservados.
+    </footer>
+
 </body>
 
 </html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Gasto</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        input {
+            font-size: 18px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #4c56af;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .button_cancel {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <h2>Modificar Gasto</h2>
+    <form method="post" action="{% url 'modifica_gasto' %}">
+        {% csrf_token %}
+        <label for="ID_gasto">ID de gasto:</label>
+        <input type="text" id="ID_gasto" name="ID_gasto" value="{{ gasto.ID_gasto }}" readonly>
+
+        <label for="Cantidad">Cantidad:</label>
+        <input type="number" id="Cantidad" name="Cantidad" value="{{ gasto.Cantidad }}">
+
+        <label for="Tipo_gasto">Tipo de gasto:</label>
+        <input type="text" id="Tipo_gasto" name="Tipo_gasto" value="{{ gasto.Tipo_gasto }}" placeholder="Ejemplo: Salario">
+
+        <button type="submit">Modificar</button>
+        <button class="button_cancel" onclick="window.location='{% url 'contabilidad' %}'">Cancelar</button>
+    </form>
+
+    
+</body>
+</html>

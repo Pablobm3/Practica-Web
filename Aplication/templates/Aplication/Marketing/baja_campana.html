@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Dar de Baja Campaña</title>
@@ -24,7 +25,8 @@
             font-size: 18px;
         }
 
-        input, select {
+        input,
+        select {
             font-size: 18px;
             padding: 10px;
             width: 100%;
@@ -36,7 +38,8 @@
             font-size: 20px;
             padding: 10px 20px;
             margin-top: 20px;
-            background-color: #f44336; /* Rojo */
+            background-color: #f44336;
+            /* Rojo */
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -44,14 +47,16 @@
         }
 
         button:hover {
-            background-color: #d32f2f; /* Rojo oscuro al pasar el ratón */
+            background-color: #d32f2f;
+            /* Rojo oscuro al pasar el ratón */
         }
 
         #inicio-btn {
             font-size: 20px;
             padding: 10px 20px;
             margin-top: 20px;
-            background-color: #4CAF50; /* Verde */
+            background-color: #4CAF50;
+            /* Verde */
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -59,16 +64,19 @@
         }
 
         #inicio-btn:hover {
-            background-color: #45a049; /* Verde oscuro al pasar el ratón */
+            background-color: #45a049;
+            /* Verde oscuro al pasar el ratón */
         }
     </style>
 </head>
+
 <body>
     <h2>Dar de Baja Campaña</h2>
     <form method="post" action="{% url 'baja_campana' %}" onsubmit="return confirmacion()">
         {% csrf_token %}
         <label for="ID_Campana">ID de la Campaña:</label>
-        <input type="text" name="ID_Campana" id="ID_Campana" placeholder="ID de la Campaña" value="{{ campana.ID_Campana }}" readonly>
+        <input type="text" name="ID_Campana" id="ID_Campana" placeholder="ID de la Campaña"
+            value="{{ campana.ID_Campana }}" readonly>
         <br>
         <button type="submit">Dar de Baja</button>
         <button id="inicio-btn" onclick="window.location='{% url 'marketing' %}'">Cancelar</button>

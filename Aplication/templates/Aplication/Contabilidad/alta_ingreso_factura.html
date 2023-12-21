@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dar de Alta Ingreso de factura</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        input {
+            font-size: 18px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #4c56af;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3f4c8a;
+        }
+
+        .button_cancel {
+            background-color: #f44336;     /* Rojo normal */
+        }
+
+        .button_cancel:hover {
+            background-color: #b71c1c;      /* Rojo oscuro */
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Dar de Alta Ingreso Factura</h2>
+    <form method="post" action="{% url 'alta_ingreso_factura' %}">
+        {% csrf_token %}
+        <label for="ID_ingreso">ID Ingreso:</label>
+        <input type="text" id="ID_ingreso" name="ID_ingreso" required placeholder="Ejemplo: I01">
+
+        <label for="Cantidad">Cantidad:</label>
+        <input type="number" id="Cantidad" name="Cantidad" required placeholder="Ejemplo: 75">
+
+        <label for="Tipo_gasto">Tipo de gasto:</label>
+        <input type="text" id="Tipo_gasto" name="Tipo_gasto" required placeholder="Ejemplo: Factura">
+
+        <label for="DNI_Socio">DNI del Socio:</label>
+        <input type="text" id="DNI_Socio" name="DNI_Socio" required placeholder="Ejemplo: 55667788R">
+
+        <label for="ID_Articulo">ID Articulo:</label>
+        <input type="text" id="ID_Articulo" name="ID_Articulo" required placeholder="Ejemplo: FUT_1">
+
+        <label for="Fecha_factura">Fecha de la factura:</label>
+        <input type="date" id="Fecha_factura" name="Fecha_factura" required placeholder="Ejemplo: 26/06/2002">
+
+        <button type="submit">Crear</button>
+        <button class="button_cancel" onclick="window.location='{% url 'contabilidad' %}'">Cancelar</button>
+    </form>
+   
+</body>
+</html>
