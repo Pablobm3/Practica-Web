@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dar de Baja Proveedor</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        input {
+            font-size: 18px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #af4c4c; /* Rojo */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #af4c4c; /* Rojo oscuro al pasar el ratón */
+        }
+
+        #inicio-btn {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #af4c4c; /* Rojo */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #inicio-btn:hover {
+            background-color: #af4c4c; /* Verde oscuro al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+    <h2>Dar de Baja Proveedor</h2>
+    <form method="post" action="{% url 'baja_proveedor' %}" onsubmit="return confirmacion()">
+        {% csrf_token %}
+        <label for="Nompro">Nombre proveedor:</label>
+        <input type="text" id="Nompro" name="Nompro" value="{{ proveedor.Nompro }}" readonly>
+        
+        <button type="submit">Borrar</button>
+        <button id="inicio-btn" onclick="window.location='{% url 'logistica' %}'">Cancelar</button>
+    </form>
+    <script>
+        function confirmacion() {
+            return confirm("¿Estás seguro de que quieres dar de baja a este proveedor?");
+        }
+    </script>
+</body>
+</html>

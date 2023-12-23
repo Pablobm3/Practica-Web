@@ -156,7 +156,7 @@ CREATE TABLE Articulos(
 
 '''
 class Articulos(models.Model):
-    ID_Articulo = models.CharField(max_length=5, primary_key=True, serialize=False)
+    ID_Articulo = models.CharField(max_length=5, primary_key=True)
     Cantidad = models.IntegerField()
     Precio = models.IntegerField()
     Deporte = models.CharField(max_length=50)
@@ -175,7 +175,7 @@ CREATE TABLE Proveedor(
 '''
 
 class Proveedor(models.Model):
-    Nompro = models.CharField(auto_created=True, primary_key=True, serialize=False, verbose_name='Nompro',max_length=20)
+    Nompro = models.CharField(max_length=20, primary_key=True)
     Deporte_especializado = models.CharField(max_length=50)
     Ciudad = models.CharField(max_length=50)
     Telefono_proveedor = models.CharField(max_length=9)
@@ -194,7 +194,7 @@ CREATE TABLE Compra(
 '''
 
 class Compra(models.Model):
-    DNI_Socio = models.CharField(max_length=9, primary_key=True, serialize=False)
+    DNI_Socio = models.CharField(max_length=9, primary_key=True)
     ID_Articulo = models.CharField(max_length=5)
     Fecha_factura = models.DateField()
     Cantidad_compra = models.IntegerField()

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dar de Baja Articulo</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        input, select {
+            font-size: 18px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #f44336; /* Rojo */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #d32f2f; /* Rojo oscuro al pasar el ratón */
+        }
+
+        #inicio-btn {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #af4c4c; /* Rojo */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #inicio-btn:hover {
+            background-color: #af4c4c; /* Rojo oscuro al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+    <h2>Dar de Baja Articulo</h2>
+    <form method="post" action="{% url 'baja_articulo' %}" onsubmit="return confirmacion()">
+        {% csrf_token %}
+        <label for="ID_Articulo">ID del Articulo:</label>
+        <input type="text" name="ID_Articulo" id="ID_Articulo" placeholder="ID del Articulo" value="{{ articulo.ID_Articulo }}" readonly >
+        <br>
+        <button type="submit">Dar de Baja</button>
+        <button id="inicio-btn" onclick="window.location='{% url 'logistica' %}'">Cancelar</button>
+    </form>
+
+    <script>
+        function confirmacion() {
+            // Utiliza la función confirm de JavaScript para mostrar una ventana de confirmación
+            return confirm('¿Estás seguro de dar de baja el Artículo?');
+        }
+    </script>
+</body>
+
+</html>

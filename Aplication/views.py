@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .views_marketing import *
 from .views_contabilidad import *
+from .views_logistica import *
 
 # Create your views here.
 

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #af4c4c;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        p {
+            color: #777;
+            margin-top: 20px;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #af4c4c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #af4c4c;
+        }
+    </style>
+</head>
+<body>
+    <h2>Resultados:</h2>
+    {% if tabla == 'Articulos' %}
+        <table>
+            <!-- Estructura específica para la tabla Articulo -->
+            <thead>
+                <tr>
+                    <th>ID_Articulo</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Deporte</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for fila in filas %}
+                    <tr>
+                        <td>{{ fila.ID_Articulo }}</td>
+                        <td>{{ fila.Cantidad }}</td>
+                        <td>{{ fila.Precio }}</td>
+                        <td>{{ fila.Deporte }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% elif tabla == 'Proveedor' %}
+        <!-- Estructura específica para otra tabla -->
+        <table>
+            <!-- Estructura específica para la tabla Proveedor -->
+            <thead>
+                <tr>
+                    <th>Nompro</th>
+                    <th>Deporte_especializado</th>
+                    <th>Ciudad</th>
+                    <th>Telefono_proveedor</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for fila in filas %}
+                    <tr>
+                        <td>{{ fila.Nompro}}</td>
+                        <td>{{ fila.Deporte_especializado }}</td>
+                        <td>{{ fila.Ciudad }}</td>
+                        <td>{{ fila.Telefono_proveedor }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <!-- ... -->
+    {% elif tabla == 'Compra' %}
+        <!-- Estructura específica para otra tabla -->
+        <table>
+            <!-- Estructura específica para la tabla Compra -->
+            <thead>
+                <tr>
+                    <th>DNI Socio</th>
+                    <th>ID_Articulo</th>
+                    <th>Fecha_factura</th>
+                    <th>Cantidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for fila in filas %}
+                    <tr>
+                        <td>{{ fila.DNI_Socio}}</td>
+                        <td>{{ fila.ID_Articulo }}</td>
+                        <td>{{ fila.Fecha_factura }}</td>
+                        <td>{{ fila.Cantidad }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <!-- ... -->
+    {% else %}
+        <p>Tabla no reconocida o No existen elementos</p>
+    {% endif %}
+
+    <button onclick="window.location='{% url 'logistica' %}'">Volver</button>
+</body>
+</html>
