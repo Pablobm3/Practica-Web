@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecciona Trabajador</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        input, select {
+            font-size: 18px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #e0ae09;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e0ae09;
+        }
+
+        .button_cancel {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Modificar trabajador</h2>
+    
+    <form method="post" action="{% url 'selecciona_trabajador_modifica' %}">
+        {% csrf_token %}
+        <label for="DNI_Trabajador">DNI Trabajador:</label>
+        <select name="DNI_Trabajador">
+            {% for trabajador in Trabajadores %}
+                <option value="{{ trabajador.DNI_Trabajador }}">{{ trabajador.DNI_Trabajador }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <button type="submit">Seleccionar</button>
+        <button type="button" class="button_cancel" onclick="window.location='{% url 'rrhh' %}'">Cancelar</button>
+        <!-- Botón para ir a la página de inicio -->
+    </form>
+
+</body>
+</html>

@@ -15,3 +15,4 @@ admin.site.register(Articulos)
 admin.site.register(Proveedor)
 admin.site.register(Compra)
 # Pablo
+admin.site.register(Trabajadores)

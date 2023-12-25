@@ -201,3 +201,14 @@ class Compra(models.Model):
 
     def __str__(self):
         return self.DNI_Socio
+
+class Trabajadores(models.Model):
+    DNI_Trabajador = models.CharField(max_length=9, primary_key=True)
+    Nombre_Trabajador = models.CharField(max_length=50)
+    Telefono_trabajador = models.CharField(max_length=9)
+    
+    Salario = models.CharField(max_length=16)
+    Domicilio = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.DNI_Trabajador

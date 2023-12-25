@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dar de Baja Trabajador</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        input {
+            font-size: 18px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #f44336; /* Rojo */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #d32f2f; /* Rojo oscuro al pasar el ratón */
+        }
+
+        #inicio-btn {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #e0ae09; 
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #inicio-btn:hover {
+            background-color: #e0ae09; /* Verde oscuro al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+    <h2>Dar de Baja Trabajador</h2>
+    <form method="post" action="{% url 'baja_trabajador' %}" onsubmit="return confirmacion()">
+        {% csrf_token %}
+        <label for="DNI_Trabajador">DNI_Trabajador:</label>
+        <input type="text" id="DNI_Trabajador" name="DNI_Trabajador" value="{{ trabajador.DNI_Trabajador }}" readonly>
+        <label for="Nombre_Trabajador">Nombre_Trabajador:</label>
+        <input type="text" id="Nombre_Trabajador" name="Nombre_Trabajador" value="{{ trabajador.Nombre_Trabajador }}" readonly>
+
+        <label for="Telefono_trabajador">Telefono_trabajador:</label>
+        <input type="text" id="Telefono_trabajador" name="Telefono_trabajador" value="{{ trabajador.Telefono_trabajador }}" readonly>
+
+       
+
+        <label for="Salario">Salario:</label>
+        <input type="text" id="Salario" name="Salario" value="{{ trabajador.Salario }}" readonly>
+
+        <label for="Domicilio">Domicilio:</label>
+        <input type="text" id="Domicilio" name="Domicilio" value="{{ trabajador.Domicilio }}" readonly>
+
+        <button type="submit">Borrar</button>
+        <button id="inicio-btn" onclick="window.location='{% url 'rrhh' %}'">Cancelar</button>
+    </form>
+    <script>
+        function confirmacion() {
+            return confirm("¿Estás seguro de que quieres dar de baja a este trabajador?");
+        }
+    </script>
+</body>
+</html>

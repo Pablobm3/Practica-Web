@@ -1,19 +1,121 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <title>Recursos Humanos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-top: 10px;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ccc;
+            margin: 20px 0;
+        }
+
+        .container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .button {
+            font-size: 18px;
+            padding: 12px 24px;
+            background-color: #e0ae09;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #e0ae09;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #777;
+        }
+
+        /* Estilos para el botón de Inicio en la esquina superior derecha */
+        #inicio-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #e0ae09;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #inicio-btn:hover {
+            background-color: #e0ae09;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Recursos Humanos</h1>
-    <p>Esta es la pagina de Recursos Humanos</p>
-    <!-- Dar de alta un trabajador -->
-    <!-- Dar de baja un trabajador -->
-    <!-- Modificar un trabajador -->
-    <!-- Listar los trabajadores -->
+
+    <header>
+        <h1>Recursos Humanos</h1>
+    </header>
+    <hr>
+
+    <div class="container">
+        <div class="button-group">
+            <button onclick="window.location='{% url 'alta_trabajador' %}'" class="button" title="Usa esta opción para dar de alta un tranajador">Dar de alta un trabajador</button>
+            <button onclick="window.location='{% url 'trabajadores_list' %}'" class="button" title="Usa esta opción para listar los trabajadores">Listar trabajadores</button>
+            <button onclick="window.location='{% url 'selecciona_trabajador_baja' %}'" class="button" title="Usa esta opción para dar de baja un trabajador">Dar de baja un trabajador</button>
+            
+            <button onclick="window.location='{% url 'selecciona_trabajador_modifica' %}'" class="button" title="Usa esta opción para modificar un trabajador">Modificar un trabajador</button>
+            
+        </div>
+    </div>
+
+    <hr>
+
     
-    <!-- Button para ir a la página de home-->
-    <button onclick="window.location='{% url 'home' %}'" style="font-size: 20px; padding: 10px 20px;">Inicio</button>
+
+    <hr>
+
+    <div class="container">
+        <!-- Botón de Inicio en la esquina superior derecha -->
+        <button id="inicio-btn" onclick="window.location='{% url 'home' %}'">Inicio</button>
+    </div>
+
+    <footer>
+        © 2023 Recursos Humanos. Todos los derechos reservados.
+    </footer>
+
 </body>
 
 </html>

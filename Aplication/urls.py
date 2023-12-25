@@ -13,6 +13,10 @@ from .views import alta_articulo, alta_proveedor, baja_articulo, baja_proveedor,
 from .views import modifica_articulo, modifica_proveedor
 from .views import selecciona_articulo_baja, selecciona_articulo_modifica, selecciona_proveedor_baja, selecciona_proveedor_modifica
 
+
+from .views import alta_trabajador,trabajadores_list,baja_trabajador,selecciona_trabajador_baja, modifica_trabajador, selecciona_trabajador_modifica
+
+
 urlpatterns = [
     path('', home, name='home'),
     path('marketing/', marketing, name="marketing"),
@@ -62,5 +66,14 @@ urlpatterns = [
     path('selecciona_proveedor_modifica/', selecciona_proveedor_modifica, name="selecciona_proveedor_modifica"),
     path('selecciona_articulo_modifica/', selecciona_articulo_modifica, name="selecciona_articulo_modifica"),
     path('selecciona_articulo_baja/', selecciona_articulo_baja, name="selecciona_articulo_baja"),
+
+    #PABLO
+
+    path('alta_trabajador/', alta_trabajador, name="alta_trabajador"),
+    path('trabajadores_list/', trabajadores_list, name='trabajadores_list'),
+    path('baja_trabajador/', baja_trabajador, name="baja_trabajador"),
+    path('selecciona_trabajador_baja/', selecciona_trabajador_baja, name="selecciona_trabajador_baja"),
+    path('modifica_trabajador/', modifica_trabajador, name="modifica_trabajador"),
+    path('selecciona_trabajador_modifica/', selecciona_trabajador_modifica, name="selecciona_trabajador_modifica"),
 
 ]
