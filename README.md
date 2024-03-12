@@ -1,4 +1,1 @@
-Acabo de crear el README
-Está todo ahí.
-
-Lo único que necesitaréis es el virtual environment, pero eso es fácil.
+Proyecto realizado para la asignatura Desarrollo de Sistemas de Información de Ingeniería Informática UGR, en el que se realiza una base de datos para un supuesto establecimiento de Deportes utilizando Python, Django y HTML
